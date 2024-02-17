@@ -1,8 +1,4 @@
 import React from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
 import { styles } from "../style";
 import { experiences } from "../constants";
@@ -11,17 +7,12 @@ import { textVariant } from "../utils/motion";
 
 const ExperienceCard = ({ experience }) => {
   return (
-    <VerticalTimelineElement
-      contentStyle={{
-        background: "#1d1836",
-        color: "#fff",
-      }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+    <div
       date={experience.date}
       iconStyle={{ background: experience.iconBg }}
     >
       <div>
-        <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
+        <h3 className="text-white text-[24px] font-bold mt-3">{experience.title}</h3>
         <p
           className="text-secondary text-[16px] font-semibold"
           style={{ margin: 0 }}
@@ -39,7 +30,7 @@ const ExperienceCard = ({ experience }) => {
           </li>
         ))}
       </ul>
-    </VerticalTimelineElement>
+    </div>
   );
 };
 
@@ -55,15 +46,13 @@ const Experience = () => {
         </h2>
       </motion.div>
 
-      <div className="mt-20 flex flex-col">
-        <VerticalTimeline>
+      <div className="mt-12 flex flex-col">
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={`experience-${index}`}
               experience={experience}
             />
           ))}
-        </VerticalTimeline>
       </div>
     </>
   );
